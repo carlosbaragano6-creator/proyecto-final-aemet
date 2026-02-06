@@ -1,0 +1,28 @@
+CREATE DATABASE aemet;
+
+CREATE TABLE indicativos (
+    indicativo VARCHAR(10),
+    nombre VARCHAR(64),
+    PRIMARY KEY (indicativo)
+);
+
+CREATE TABLE observaciones_cadiz (
+    id SERIAL,
+    fecha TIMESTAMP,
+    nombre VARCHAR(50),
+    indicativo VARCHAR(10),
+    provincia VARCHAR(50),
+    altitud INT,
+    tmin FLOAT,
+    tmax FLOAT,
+    tmed FLOAT,
+    prec FLOAT,
+    velmedia FLOAT,
+    racha FLOAT,
+    hrMedia FLOAT,
+    hrMax FLOAT,
+    hrMin FLOAT,
+    dir FLOAT,
+    PRIMARY KEY (id),
+    FOREIGN KEY (indicativo) REFERENCES indicativos (indicativo)
+);
